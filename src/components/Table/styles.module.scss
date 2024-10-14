@@ -1,0 +1,32 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_fonts.scss';
+
+.table_header {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+
+  @include md {
+    font-size: 13px;
+  }
+
+  &>* {
+    padding: 0.3rem;
+  }
+
+  span {
+    vertical-align: baseline;
+  }
+}
+
+.table_data {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 0 2.6px;
+  text-align: center;
+  margin: auto;
+
+  font-size: 13px;
+
+  &>* {
+    padding: 0.3rem;
+  }
+}

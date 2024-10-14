@@ -1,19 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useEffect, useState } from 'react'
+import ReactDOM from 'react-dom/client'
+import { useCookies, CookiesProvider } from 'react-cookie'
+import {
+  ApolloClient,
+  ApolloProvider,
+  NormalizedCacheObject,
+} from '@apollo/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import { initializeApollo } from './lib/apolloClient'
+import SimpleLoading from 'components/Loading'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Root = () => {
+  const [client, setClient] =
+    useState<ApolloClient<NormalizedCacheObject> | null>(null)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  const [cookies] = useCookies(['auth-token'])
+
+  useEffect(() => {
+    // Initialize Apollo client with cookies
+    const apolloClient = initializeApollo({ cookies })
+    setClient(apolloClient)
+  }, [cookies])
+
+  if (!client)
+    return (
+      <div className="first-loading">
+        <SimpleLoading />
+      </div>
+    )
+
+  return (
+    <React.StrictMode>
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>
+        <ApolloProvider client={client}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ApolloProvider>
+      </CookiesProvider>
+    </React.StrictMode>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+root.render(<Root />)

@@ -1,0 +1,29 @@
+@import "styles/fonts.scss";
+$button-colors: #49b4b8;
+
+.header_con__header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 3% auto;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+  width: 60%;
+
+}
+
+.header_con__header:after,
+.header_con__header:before {
+  content: " ";
+  display: block;
+  border-bottom: 0.5px solid $button-colors;
+  border-top: 3px solid #2f7e815d;
+  height: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+}

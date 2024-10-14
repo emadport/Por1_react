@@ -1,0 +1,990 @@
+enum LeaveStatus {
+  Accepted
+  Rejected
+  Pending
+}
+enum TimesVariationsEnum {
+  Jobb
+  Sjuk
+  Semester
+  Vabb
+}
+mutation Login($input: LoginCredentials!, $expireTime: Int) {
+  login(input: $input, expireTime: $expireTime) {
+    id
+    token
+    role
+  }
+}
+
+mutation registerNewUser(
+  $email: String!
+  $username: String!
+  $workHoursInWeek: Int
+  $role: UserRoleEnum!
+  $companyId: String!
+  $address: String
+  $personalNumber: String
+  $postalCode: String
+  $salary: Float
+  $relativeNumber: String
+  $relativeName: String
+  $carRegisteringNumber: String
+  $bankAccount: String
+) {
+  registerNewUser(
+    email: $email
+    username: $username
+    workHoursInWeek: $workHoursInWeek
+    role: $role
+    companyId: $companyId
+    address: $address
+    salary: $salary
+    postalCode: $postalCode
+    personalNumber: $personalNumber
+    relativeName: $relativeName
+    relativeNumber: $relativeNumber
+    carRegisteringNumber: $carRegisteringNumber
+    bankAccount: $bankAccount
+  ) {
+    id
+  }
+}
+
+mutation addTime(
+  $userId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+  $fromHome: Boolean!
+  $project: String!
+  $task: String!
+) {
+  addTime(
+    userId: $userId
+    beginDate: $beginDate
+    finishDate: $finishDate
+    fromHome: $fromHome
+    project: $project
+    task: $task
+  ) {
+    _id
+    timeSpend
+    subTimes {
+      timeSpend
+      id
+      _id
+    }
+  }
+}
+mutation addProject(
+  $companyId: ID!
+  $projectName: String!
+  $estimatedBudget: Float!
+  $startTid: Date!
+  $estimatedFinishTime: Date!
+  $workers: [String]!
+) {
+  addProject(
+    companyId: $companyId
+    projectName: $projectName
+    estimatedBudget: $estimatedBudget
+    startTid: $startTid
+    estimatedFinishTime: $estimatedFinishTime
+    workers: $workers
+  ) {
+    _id
+  }
+}
+mutation addSubProject(
+  $companyId: ID!
+  $projectName: String!
+  $estimatedBudget: Float!
+  $startTid: Date!
+  $estimatedFinishTime: Date!
+  $workers: [String]!
+  $subProjectName: String!
+) {
+  addSubProject(
+    companyId: $companyId
+    projectName: $projectName
+    estimatedBudget: $estimatedBudget
+    startTid: $startTid
+    estimatedFinishTime: $estimatedFinishTime
+    workers: $workers
+    subProjectName: $subProjectName
+  ) {
+    _id
+  }
+}
+mutation addTask(
+  $projectId: String!
+  $taskName: String!
+  $startTid: Date!
+  $estimatedFinishTime: Date!
+  $workers: [String]!
+) {
+  addTask(
+    projectId: $projectId
+    taskName: $taskName
+    startTid: $startTid
+    estimatedFinishTime: $estimatedFinishTime
+    workers: $workers
+  ) {
+    _id
+  }
+}
+mutation addSubTask(
+  $taskName: String!
+  $startTid: Date!
+  $estimatedFinishTime: Date!
+  $workers: [String]!
+  $subTaskName: String!
+) {
+  addSubTask(
+    taskName: $taskName
+    startTid: $startTid
+    estimatedFinishTime: $estimatedFinishTime
+    workers: $workers
+    subTaskName: $subTaskName
+  ) {
+    _id
+  }
+}
+mutation addUserToProject($projectId: String!, $users: [String!]) {
+  addUserToProject(projectId: $projectId, users: $users) {
+    _id
+  }
+}
+mutation addUserToTask(
+  $taskId: String!
+  $users: [String!]
+  $projectId: String!
+) {
+  addUserToTask(taskId: $taskId, users: $users, projectId: $projectId) {
+    _id
+  }
+}
+
+mutation addLeave(
+  $userId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+  $leaveType: String!
+  $message: String!
+) {
+  addLeave(
+    userId: $userId
+    beginDate: $beginDate
+    finishDate: $finishDate
+    leaveType: $leaveType
+    message: $message
+  ) {
+    _id
+    beginDate
+    finishDate
+  }
+}
+
+mutation setLeaveStatus($userId: ID!, $leaveId: ID!, $status: String!) {
+  setLeaveStatus(userId: $userId, leaveId: $leaveId, status: $status) {
+    _id
+    status
+  }
+}
+mutation deleteUserTime($userId: ID!, $rangeId: ID!) {
+  deleteUserTime(userId: $userId, rangeId: $rangeId)
+}
+mutation deleteUserLeave($userId: ID!, $rangeId: ID!) {
+  deleteUserLeave(userId: $userId, rangeId: $rangeId)
+}
+mutation editUserTime(
+  $userId: ID!
+  $rangeId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+) {
+  editUserTime(
+    userId: $userId
+    rangeId: $rangeId
+    beginDate: $beginDate
+    finishDate: $finishDate
+  ) {
+    _id
+  }
+}
+
+mutation editUserInfo(
+  $username: String
+  $email: String
+  $workHoursInWeek: Int
+  $role: UserRoleEnum
+  $companyId: String
+  $address: String
+  $postalCode: String
+  $salary: Float
+  $personalNumber: String
+  $relativeNumber: String
+  $relativeName: String
+) {
+  editUserInfo(
+    username: $username
+    email: $email
+    workHoursInWeek: $workHoursInWeek
+    role: $role
+    companyId: $companyId
+    address: $address
+    postalCode: $postalCode
+    salary: $salary
+    personalNumber: $personalNumber
+    relativeNumber: $relativeNumber
+    relativeName: $relativeName
+  ) {
+    id
+  }
+}
+mutation editUserInfoByKeyValue($key: String, $value: String, $userId: String) {
+  editUserInfoByKeyValue(key: $key, value: $value, userId: $userId) {
+    id
+  }
+}
+mutation sendMail(
+  $from: String!
+  $to: String!
+  $text: String!
+  $title: String!
+  $platform: String
+) {
+  sendMail(
+    from: $from
+    to: $to
+    text: $text
+    title: $title
+    platform: $platform
+  )
+}
+mutation resetPassword(
+  $newPassword: String!
+  $passToken: String!
+  $email: String!
+) {
+  resetPassword(
+    newPassword: $newPassword
+    passToken: $passToken
+    email: $email
+  ) {
+    id
+  }
+}
+mutation editUserLeave(
+  $userId: ID!
+  $rangeId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+) {
+  editUserLeave(
+    userId: $userId
+    rangeId: $rangeId
+    beginDate: $beginDate
+    finishDate: $finishDate
+  ) {
+    _id
+  }
+}
+mutation editUserVacation(
+  $userId: ID!
+  $rangeId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+) {
+  editUserTime(
+    userId: $userId
+    rangeId: $rangeId
+    beginDate: $beginDate
+    finishDate: $finishDate
+  ) {
+    _id
+  }
+}
+mutation editUserAbsens(
+  $userId: ID!
+  $rangeId: ID!
+  $beginDate: Date!
+  $finishDate: Date!
+) {
+  editUserTime(
+    userId: $userId
+    rangeId: $rangeId
+    beginDate: $beginDate
+    finishDate: $finishDate
+  ) {
+    _id
+  }
+}
+mutation connectUserToManager($userId: String!, $managerId: String!) {
+  connectUserToManager(userId: $userId, managerId: $managerId) {
+    id
+  }
+}
+mutation disConnectUserFromManager($userId: String!, $managerId: String!) {
+  disConnectUserFromManager(userId: $userId, managerId: $managerId) {
+    id
+  }
+}
+mutation sendNotification(
+  $sender: String!
+  $receiver: String!
+  $title: String
+  $message: String
+) {
+  sendNotification(
+    sender: $sender
+    receiver: $receiver
+    title: $title
+    message: $message
+  ) {
+    _id
+  }
+}
+mutation answerToNotification(
+  $sender: String!
+  $receiver: String!
+  $notificationId: String!
+  $title: String
+  $message: String
+) {
+  answerToNotification(
+    sender: $sender
+    receiver: $receiver
+    notificationId: $notificationId
+    title: $title
+    message: $message
+  ) {
+    _id
+  }
+}
+
+mutation setDailyTimeAndLeave(
+  $leaves: [WorkAndLeaveEntry]
+  $works: [WorkAndLeaveEntry]
+) {
+  setDailyTimeAndLeave(leaves: $leaves, works: $works)
+}
+mutation setNotificationSeen($notificationId: String!) {
+  setNotificationSeen(notificationId: $notificationId) {
+    _id
+  }
+}
+query getNotifications($userId: String!) {
+  getNotifications(userId: $userId) {
+    _id
+    createdAt
+    notifications {
+      _id
+      sender {
+        username
+        email
+        id
+        role
+      }
+      receiver {
+        username
+        email
+        id
+        role
+      }
+      message
+      seen
+      title
+      createdAt
+      seenUsers
+    }
+    sender {
+      id
+      username
+      email
+    }
+    receiver {
+      id
+      username
+      email
+    }
+  }
+}
+query getNotificationRoomById($notificationId: String!) {
+  getNotificationRoomById(notificationId: $notificationId) {
+    _id
+    notifications {
+      _id
+      sender {
+        username
+        email
+      }
+      receiver {
+        username
+        email
+      }
+      message
+      seen
+      title
+      createdAt
+      seenUsers
+    }
+    sender {
+      id
+      username
+      email
+    }
+    receiver {
+      id
+      username
+      email
+    }
+  }
+}
+query getRoomNotifications($sender: String!, $receiver: String!) {
+  getRoomNotifications(sender: $sender, receiver: $receiver) {
+    _id
+    notifications {
+      _id
+      sender {
+        username
+        email
+      }
+      receiver {
+        username
+        email
+      }
+      message
+      seen
+      title
+      createdAt
+    }
+    sender {
+      id
+      username
+      email
+    }
+    receiver {
+      id
+      username
+      email
+    }
+  }
+}
+query currentUser {
+  currentUser {
+    id
+    email
+    username
+    role
+    managers {
+      id
+    }
+    company {
+      _id
+      name
+    }
+  }
+}
+query getUsersInfo($userId: String!) {
+  getUsersInfo(userId: $userId) {
+    id
+    email
+    username
+    role
+    address
+    postalCode
+    salary
+    workHoursInWeek
+    carRegisteringNumber
+    personalNumber
+    bankAccount
+    managers {
+      email
+    }
+    company {
+      _id
+      name
+    }
+  }
+}
+query refreshToken($id: String, $token: String) {
+  refreshToken(id: $id, token: $token) {
+    token
+    role
+    username
+    email
+  }
+}
+query getUsersByCompany($companyId: String) {
+  getUsersByCompany(companyId: $companyId) {
+    id
+    email
+    username
+    company {
+      _id
+      name
+    }
+  }
+}
+query getAllUsersInCompany($companyId: String) {
+  getAllUsersInCompany(companyId: $companyId) {
+    id
+    email
+    username
+    role
+    managers {
+      email
+      id
+    }
+    company {
+      _id
+      name
+    }
+  }
+}
+query GetLeaves($beginDateQuery: Date, $finishDateQuery: Date) {
+  getLeaves(
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    _id
+    leaveType
+    beginDate
+    finishDate
+    status
+    user {
+      email
+      username
+      id
+    }
+  }
+}
+query getProjectsByCompany($id: String!) {
+  getProjectsByCompany(id: $id) {
+    _id
+    name
+    startDate
+    subProjects {
+      _id
+      name
+
+      tasks {
+        name
+        _id
+        subTasks {
+          parentTask
+          _id
+          name
+          workers {
+            username
+            email
+            id
+          }
+        }
+        workers {
+          username
+          email
+          id
+        }
+      }
+    }
+    company {
+      _id
+      name
+    }
+    tasks {
+      name
+      _id
+      subTasks {
+        _id
+        name
+        workers {
+          username
+          email
+          id
+        }
+      }
+      workers {
+        username
+        email
+        id
+      }
+    }
+  }
+}
+
+query getProjects($companyId: ID!) {
+  getProjects(companyId: $companyId) {
+    _id
+    name
+    startDate
+    subProjects {
+      _id
+      name
+      workers {
+        username
+        email
+        id
+        tasks {
+          _id
+          name
+        }
+      }
+      tasks {
+        name
+      }
+    }
+    company {
+      _id
+      name
+    }
+    workers {
+      username
+      email
+      id
+      tasks {
+        _id
+        name
+      }
+    }
+    tasks {
+      name
+    }
+  }
+}
+query getProjectByName($projectName: String!) {
+  getProjectByName(projectName: $projectName) {
+    _id
+    name
+    budget
+    workers {
+      username
+      email
+      id
+    }
+    tasks {
+      name
+      _id
+      subTasks {
+        name
+        _id
+      }
+    }
+  }
+}
+query getTaskByName($taskName: String!) {
+  getTaskByName(taskName: $taskName) {
+    _id
+    name
+    subTasks {
+      name
+      _id
+    }
+    workers {
+      username
+      email
+      id
+    }
+  }
+}
+query GetUserTimes(
+  $userId: ID!
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+) {
+  getUserTimes(
+    userId: $userId
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    timeSpend
+    beginDate
+    finishDate
+    _id
+    fromHome
+    project
+    task
+    subTimes {
+      timeSpend
+      beginDate
+      finishDate
+      id
+      _id
+      project
+      task
+      fromHome
+    }
+  }
+}
+
+query getUsersByAdmin($adminId: String!) {
+  getUsersByAdmin(adminId: $adminId) {
+    id
+    username
+    email
+  }
+}
+query getUserChartsInfoByWeek(
+  $userId: ID!
+  $startOfWeek: Date
+  $endOfWeek: Date
+) {
+  getUserChartsInfoByWeek(
+    userId: $userId
+    startOfWeek: $startOfWeek
+    endOfWeek: $endOfWeek
+  ) {
+    user {
+      username
+    }
+    combinedDaydata {
+      day
+      leaveType
+      timeSpend
+      leaveSpended
+      leaveCounts
+      beginDate
+      finishDate
+      leaveBeginDate
+      leaveFinishDate
+
+      leaves {
+        leaveType
+        beginDate
+        finishDate
+      }
+      subTimes {
+        beginDate
+        finishDate
+        timeSpend
+        id
+        _id
+      }
+    }
+  }
+}
+
+query getUsersInfoTimesInWeeks(
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+  $type: TimesVariationsEnum
+) {
+  getUsersInfoTimesInWeeks(
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+    type: $type
+  ) {
+    user {
+      username
+    }
+    times {
+      day
+      timeSpended
+    }
+  }
+}
+query getUsersInfoLeavesInWeeks(
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+  $type: TimesVariationsEnum
+) {
+  getUsersInfoLeavesInWeeks(
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+    type: $type
+  ) {
+    user {
+      username
+    }
+    leaves {
+      day
+      timeSpended
+      leaveType
+      leaveSpended
+      hasIntersections
+    }
+  }
+}
+
+query GetAllTimes($userId: ID!) {
+  getAllTimes(userId: $userId) {
+    _id {
+      _id
+    }
+    totalTimeSpended
+  }
+}
+query getUserLeaves(
+  $userId: ID!
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+) {
+  getUserLeaves(
+    userId: $userId
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    leaveSpended
+    beginDate
+    finishDate
+    _id
+    leaveType
+    status
+    message
+    user {
+      id
+    }
+  }
+}
+query getUserLeavesByAdmin($beginDateQuery: Date, $finishDateQuery: Date) {
+  getUserLeavesByAdmin(
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    leaveSpended
+    beginDate
+    finishDate
+    _id
+    leaveType
+    status
+    message
+    user {
+      username
+      email
+      id
+    }
+  }
+}
+query getTasks {
+  getTasks {
+    name
+    _id
+    subTasks {
+      name
+      _id
+    }
+  }
+}
+
+query getDashboardDataByTime(
+  $projectQuery: String
+  $taskQuery: String
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+) {
+  getDashboardDataByTime(
+    projectQuery: $projectQuery
+    taskQuery: $taskQuery
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    user {
+      username
+      id
+    }
+    data {
+      leaves {
+        _id
+      }
+      timeSpended
+      leaveSpended {
+        type
+        value
+      }
+    }
+  }
+}
+query getUserTimesInformation(
+  $projectQuery: String
+  $taskQuery: String
+  $beginDateQuery: Date
+  $finishDateQuery: Date
+) {
+  getUserTimesInformation(
+    projectQuery: $projectQuery
+    taskQuery: $taskQuery
+    beginDateQuery: $beginDateQuery
+    finishDateQuery: $finishDateQuery
+  ) {
+    user {
+      username
+      id
+    }
+    data {
+      leaves {
+        _id
+      }
+      timeSpended
+      leaveSpended {
+        type
+        value
+      }
+    }
+  }
+}
+query compareTimeToMaxBudget($spendedHour: String, $projectName: String) {
+  compareTimeToMaxBudget(spendedHour: $spendedHour, projectName: $projectName)
+}
+query getDashboardData(
+  $projectQuery: String
+  $taskQuery: String
+  $currentMonth: Date
+) {
+  getDashboardData(
+    projectQuery: $projectQuery
+    taskQuery: $taskQuery
+    currentMonth: $currentMonth
+  ) {
+    company {
+      name
+      _id
+      projects {
+        startDate
+        subProjects {
+          _id
+          name
+
+          tasks {
+            name
+            subTasks {
+              name
+            }
+          }
+        }
+        name
+        budget
+        tasks {
+          _id
+          name
+          subTasks {
+            name
+          }
+        }
+      }
+    }
+
+    users {
+      email
+      username
+      id
+    }
+  }
+}
+query verifyToken($token: String) {
+  verifyToken(token: $token)
+}
+query getCurrentProjects($timeQuery: Date) {
+  getCurrentProjects(timeQuery: $timeQuery) {
+    name
+    projects {
+      name
+    }
+  }
+}
+query getCurrentTasks($timeQuery: Date) {
+  getCurrentTasks(timeQuery: $timeQuery) {
+    name
+    _id
+  }
+}

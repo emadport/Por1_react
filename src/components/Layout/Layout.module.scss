@@ -1,0 +1,28 @@
+@import '../../styles/_breakpoints.scss';
+
+.layout-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-areas: 'sidebar  main';
+  grid-template-rows: auto;
+  grid-template-columns: 15% 85%;
+  position: relative;
+
+
+  @include xl {
+    grid-template-columns: 20% 80%;
+  }
+
+  @include lg {
+    grid-template-areas:
+      'header'
+      'main';
+    grid-template-rows: 80px auto 80px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  z-index: 1;
+}

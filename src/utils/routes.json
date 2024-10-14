@@ -1,0 +1,94 @@
+{
+  "report_time": {
+    "path": "/report/time",
+    "component": "Tidrapportering",
+    "exact": true
+  },
+  "report_leave": {
+    "path": "/report/leave",
+    "component": "Frånvaroanmälan",
+    "exact": true
+  },
+  "report_month": {
+    "path": "/report/month",
+    "component": "TidsRapport",
+    "exact": true
+  },
+
+  "report_week": {
+    "path": "/report/week",
+    "component": "Veckorapport",
+    "exact": false
+  },
+  "categories_flows": {
+    "path": "/categories",
+    "component": "Categories",
+    "exact": false
+  },
+  "roles_flows": {
+    "path": "/roles",
+    "component": "Roles",
+    "exact": false
+  },
+  "login": {
+    "path": "/",
+    "component": "login",
+    "exact": false
+  },
+  "check_status": {
+    "path": "/admin/status",
+    "component": "Frånvarostatus (Admin)",
+    "exact": false
+  },
+  "dashboard": {
+    "path": "/dashboard/detail",
+    "component": "Översikt (admin)",
+    "exact": false
+  },
+  "profile": {
+    "path": "/profile",
+    "component": "Profil",
+    "exact": false
+  },
+  "dashboard_company": {
+    "path": "/dashboard/company",
+    "component": "company",
+    "exact": false
+  },
+  "add_project": {
+    "path": "/project/add",
+    "component": "Lägg till project",
+    "exact": false
+  },
+  "add_user": {
+    "path": "/add/user",
+    "component": "Lägg till användare",
+    "exact": false
+  },
+  "add_task": {
+    "path": "/task/add",
+    "component": "Lägg till aktivitet",
+    "exact": false
+  },
+  "notification": {
+    "path": "/notification",
+    "component": "Meddelande",
+    "exact": false
+  },
+
+  "notification_item": {
+    "path": "/notification/:notificationId",
+    "component": "Meddelande item",
+    "exact": false
+  },
+  "reset_password": {
+    "path": "/auth/reset/password",
+    "component": "Reset password",
+    "exact": false
+  },
+  "user_info": {
+    "path": "/usersInfo/:userId",
+    "component": "User informatin",
+    "exact": false
+  }
+}

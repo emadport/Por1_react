@@ -1,0 +1,65 @@
+@import '../../styles/_breakpoints.scss';
+
+$blue-100: #daecff;
+$blue-200: #80bfff;
+$blue-400: #3399ff;
+$blue-500: #007fff;
+$blue-600: #0072e5;
+$blue-700: #0059b2;
+
+$grey-50: #f3f6f9;
+$grey-100: #e5eaf2;
+$grey-200: #dae2ed;
+$grey-300: #c7d0dd;
+$grey-400: #b0b8c4;
+$grey-500: #9da8b7;
+$grey-600: #6b7a90;
+$grey-700: #434d5b;
+$grey-800: #303740;
+$grey-900: #1c2025;
+$theme-color: #49b4b8;
+
+.inputElement {
+  width: 40px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 0px;
+  border-radius: 8px;
+  text-align: center;
+  color: #282828; // Default to light theme color
+  background: #fff; // Default to light theme background
+  border: 1px solid $theme-color;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); // Default to light theme box-shadow
+
+  @include md {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+  }
+
+  &.dark {
+    color: #fff;
+    background: #383838;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover {
+    border-color: $blue-400;
+  }
+
+  &:focus {
+    border-color: $blue-400;
+    box-shadow: 0 0 0 3px $blue-200;
+
+    &.dark {
+      box-shadow: 0 0 0 3px $blue-600;
+    }
+  }
+
+  // firefox
+  &:focus-visible {
+    outline: 0;
+  }
+}

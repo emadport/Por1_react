@@ -1,0 +1,117 @@
+@import "styles/breakpoints.scss";
+@import "styles/fonts.scss";
+
+$screen-masx-width: 500px;
+@mixin label {
+  color: whitesmoke;
+  text-align: center;
+  display: block;
+  margin: 2rem 0;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+@mixin left-desgin {
+  width: 2px;
+  height: 20px;
+  background-color: tomato;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.time-check-container {
+  label {
+    @include label;
+  }
+}
+.modal-title {
+  @include label;
+}
+.time-check-wrapper {
+  width: max-content;
+  margin: auto;
+  overflow: hidden;
+
+  border-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-bottom: 3px solid rgba(173, 216, 230, 0.433);
+  padding: 30px;
+}
+.edit-calandars-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vmin;
+  width: max-content;
+  margin: auto;
+  flex-direction: column;
+  label {
+    color: white;
+    font-weight: 900;
+  }
+  &__calandars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    flex-direction: row;
+  }
+}
+.time-check-footer {
+  background: linear-gradient(to bottom, #413b3bf8, #3838380c);
+  height: 150px;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+
+  &__item {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 1rem;
+    &::before {
+      content: "";
+      width: 4px;
+      height: 140%;
+      background-color: tomato;
+      position: absolute;
+      left: 40px;
+      top: 0;
+      transform: translateX(-5px);
+      @include left-desgin;
+    }
+  }
+}
+
+.table-wrapper {
+  margin: auto;
+
+  color: white;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@include sm {
+  .time-check-container {
+    .time-check-wrapper {
+      padding: 0;
+
+      &__col1 {
+        max-width: 100%;
+
+        margin: auto;
+      }
+      .time-check-footer {
+        margin-top: auto;
+        height: 100%;
+        min-height: 200px;
+      }
+    }
+  }
+}

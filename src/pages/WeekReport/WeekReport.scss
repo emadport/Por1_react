@@ -1,0 +1,29 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_fonts.scss';
+
+.week-rapport-container {
+  margin: auto;
+  padding-top: 4%;
+  height: 100vh;
+  width: 50%;
+
+  @include md {
+    width: 90%;
+    max-width: none;
+  }
+
+  label {
+    font-size: 23px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-weight: bold;
+    margin: 1rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .week-rapport-container {
+    height: 100vmax;
+  }
+}

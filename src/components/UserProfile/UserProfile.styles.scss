@@ -1,0 +1,60 @@
+@import 'styles/_breakpoints.scss';
+
+$margin-left: '10px';
+
+.profile {
+    position: relative;
+
+    &__user-icon {
+        background-color: lightblue;
+        padding: 0.5rem;
+        font-size: 42px;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    .profile-wrapper {
+        width: 80%;
+        margin: auto;
+        padding-bottom: 10%;
+        min-height: 200px;
+        box-shadow: rgba(72, 72, 72, 0.25) 0px 13px 27px -5px,
+            rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-top: 10%;
+        border: 2px solid #49b4b851;
+
+        padding: 1rem;
+        border-radius: 5px;
+        margin: auto;
+
+
+        &__col2 {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: auto;
+
+            @include md {
+                display: flex !important;
+                flex-direction: column;
+            }
+
+            &>* {
+                max-width: 300px;
+                display: block;
+                min-width: 40%;
+
+                @include md {
+                    max-width: none;
+                    width: 100% !important;
+
+                }
+
+
+            }
+        }
+    }
+}

@@ -1,0 +1,155 @@
+@import 'styles/_breakpoints.scss';
+$button-colors: #49b4b8;
+
+
+
+.user-dashboard {
+  width: 100%;
+  margin-top: 2rem;
+  margin: auto;
+  padding-top: 5vmin;
+  font-size: 14px;
+  max-width: 95%;
+  overflow: hidden;
+  height: max-content !important;
+
+  .MuiAccordionSummary-root {
+    display: none !important;
+  }
+
+  @include md {
+    &>* {
+      font-size: 12px;
+    }
+  }
+
+  .table-con {
+    @include md {
+      * {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .table-data {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+
+    &::before {
+      width: 2px;
+      min-height: 50px;
+      content: '';
+      background-color: rgb(92, 90, 90);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .table-header {
+    text-align: center;
+    padding: 1em;
+    font-size: 13px;
+    font-weight: 700;
+
+    span {
+      vertical-align: baseline;
+    }
+  }
+
+  .user-info-container {
+    padding: 0.5rem 0;
+
+    margin: auto;
+  }
+
+  .icons {
+    color: $button-colors;
+    margin: auto 5px;
+  }
+
+  .place-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .extra-informations-label {
+    position: relative;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &>span {
+      margin-left: 5px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -20%;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background-color: rgba(77, 76, 76, 0.513);
+    }
+  }
+
+
+
+  .times-container {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  @include lg {
+    max-width: none;
+  }
+
+  .table-con {
+    &__label-and-icon {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      * {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .arrows-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+
+      display: flex;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      opacity: 0.9;
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .user-dashboard {
+    height: 100vmax;
+  }
+}

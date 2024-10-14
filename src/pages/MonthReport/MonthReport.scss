@@ -1,0 +1,416 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_fonts.scss';
+
+$screen-masx-width: 500px;
+$selected_color: lightGrey;
+$icons_theme_color: #49b4b8;
+
+@mixin label {
+  text-align: center;
+  display: block;
+  margin: 2rem 0;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin left-desgin {
+  width: 2px;
+  height: 20px;
+  background-color: tomato;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.date-pickers-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: max-content;
+  margin: auto;
+  flex-wrap: wrap;
+
+  .MuiTextField-root {
+    border: 1px solid $icons_theme_color !important;
+    border-radius: 5px;
+    border-top: none !important;
+  }
+
+  @include xl {
+    flex-direction: column;
+  }
+
+  input,
+  label {
+    color: white;
+  }
+
+  svg {
+    color: #49b4b8;
+  }
+
+  .Mui-disabled {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  &>* {
+    margin: 1em;
+  }
+
+  &--light {
+    color: red;
+  }
+}
+
+.navigation-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: max-content;
+  margin: auto;
+
+  &>button {
+    font-size: 13px;
+    min-width: 100px;
+    padding: 0.7em 1.5em;
+  }
+
+  .nav_item {
+    border-width: 0;
+    background-color: transparent;
+    margin: 6%;
+    background-color: $selected_color;
+    border-radius: 30px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .nav_item_selected {
+    cursor: pointer;
+    border-width: 0;
+    margin: 6%;
+
+    border-radius: 30px;
+    font-weight: bold;
+    background-color: $icons_theme_color;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    text-decoration: underline;
+  }
+}
+
+.month-report {
+  margin: auto;
+  border-radius: 20px;
+  padding-top: 4%;
+  width: 50%;
+  height: 100vh;
+  padding-bottom: 10%;
+
+
+  @include xxl {
+    width: 60%;
+    transform: translateX(-5%);
+  }
+
+  @include xl {
+    transform: none;
+    width: 80%;
+  }
+
+  @include md {
+    width: 100%;
+  }
+
+  label {
+    font-size: 25px;
+    @include label;
+  }
+
+  &__week-icon {
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    color: $icons_theme_color;
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+    height: 40px;
+    width: 20%;
+
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 4px;
+      font-size: 12px;
+    }
+  }
+
+  .month-report-rapport-outer-container {
+    overflow-y: scroll;
+    max-height: 200px;
+
+    margin: auto;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    padding: 1em;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+
+    &__icon {
+      cursor: pointer;
+      font-size: 17px;
+
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+        filter: brightness(220%);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(99, 98, 98, 0.653);
+      box-shadow: 0 0 1px rgba(60, 58, 58, 0.5);
+    }
+  }
+
+  .arrows-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+
+      display: flex;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      font-size: 17px;
+
+    }
+  }
+
+  .guid-colors-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    &>* {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .guid-colors1,
+    .guid-colors2,
+    .guid-colors3,
+    .guid-colors4 {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      min-height: 15px;
+      display: inline-block;
+    }
+
+    .guid-colors1 {
+      background-color: lightBlue;
+      margin: 0 5px;
+    }
+
+    .guid-colors2 {
+      background-color: rgb(249, 51, 51);
+      margin: 0 5px;
+    }
+
+    .guid-colors3 {
+      background-color: #ff6f3c;
+      margin: 0 5px;
+    }
+
+    .guid-colors4 {
+      background-color: yellow;
+      margin: 0 5px;
+    }
+
+    .guid-colors5 {
+      background-color: gray;
+      margin: 0 5px;
+    }
+  }
+}
+
+.modal-title {
+  @include label;
+}
+
+.month-report-wrapper {
+  margin: auto;
+
+  margin-bottom: 2rem;
+}
+
+.edit-calandars-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vmin;
+  width: max-content;
+  margin: auto;
+  flex-direction: column;
+
+  label {
+    font-weight: 900;
+  }
+}
+
+.month-report-footer {
+  height: 150px;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  max-width: 500px;
+
+  &__item {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-weight: bold;
+    margin: 1rem;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 140%;
+      background-color: tomato;
+      position: absolute;
+      left: 40px;
+      top: 0;
+      transform: translateX(-5px);
+      @include left-desgin;
+    }
+  }
+}
+
+.table-wrapper {
+  margin: auto;
+  width: 100%;
+
+  margin-top: 1rem;
+  border-radius: 10px;
+  height: 100px;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  @include md {
+    max-width: none;
+  }
+}
+
+@include sm {
+  .month-report {
+    .month-report-wrapper {
+      padding: 0;
+
+      &__col1 {
+        max-width: 100%;
+
+        margin: auto;
+      }
+
+      .month-report-footer {
+        margin-top: auto;
+        height: 100%;
+        min-height: 200px;
+      }
+    }
+  }
+}
+
+.month-details-container {
+  border-radius: 5px;
+
+  &--username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: 15px !important;
+    font-weight: bold;
+
+    @include md {
+      font-size: 7px !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .month-table-wrapper {
+    padding: 2%;
+  }
+
+  .month-details-container--header-container {
+    background-color: #414040;
+    padding: 1em;
+  }
+
+  .users-container {
+    border-radius: 5px;
+
+    padding: 1em;
+
+    &--dagar-wrapper {
+      display: grid;
+      width: 100%;
+      justify-self: start;
+      align-self: flex-start;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+}
+
+@media (max-height: 700px) {
+  .month-report {
+    height: 100vmax;
+  }
+}

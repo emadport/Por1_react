@@ -1,0 +1,337 @@
+@import '../../../styles/_breakpoints.scss';
+$main-color: #49b8b8;
+
+.week-details-con {
+  padding-top: 5%;
+  width: 100%;
+  margin-top: 2rem;
+
+  position: relative;
+  margin: auto;
+  min-height: 100vmin;
+  width: 80%;
+  max-width: 800px;
+
+
+  @include lg {
+    max-width: none;
+  }
+
+  @include md {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .chart-times {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    align-self: end;
+    justify-self: end;
+
+    @include md {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column-reverse;
+      align-self: center;
+      justify-self: center;
+    }
+
+    &>* {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+
+  .cells {
+    width: 50%;
+    max-width: 30px;
+    height: 40px;
+    font-size: 12px;
+
+
+  }
+
+  .loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .back-button {
+    position: absolute;
+    display: inline-block;
+    top: 2%;
+    left: 2%;
+
+    &>* {
+      border: 1px solid $main-color;
+      padding: 0.1em 1.5em;
+      border-radius: 10px;
+    }
+
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .guid-colors-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &>* {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+    }
+
+    .guid-colors1,
+    .guid-colors2,
+    .guid-colors3,
+    .guid-colors4 {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
+      margin: 0 5px;
+      display: inline-block;
+    }
+
+    .guid-colors2 {
+      background-color: #f44a69;
+    }
+
+    .guid-colors1 {
+      background-color: #49b8b8;
+    }
+
+    .guid-colors3 {
+      background-color: tomato;
+    }
+
+    .guid-colors4 {
+      background-color: yellow;
+    }
+  }
+
+  @include lg {
+    max-width: none;
+  }
+
+  .custom-chart {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-rows: auto;
+    min-height: 500px;
+  }
+
+  .week-days-container {
+    margin-top: 2em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+
+    margin: auto;
+
+    &>* {
+      justify-self: center;
+      text-align: center;
+      font-size: 10px;
+      width: 100%;
+      align-self: center;
+      font-weight: 900;
+    }
+
+    @include md {
+      margin-top: 0;
+    }
+  }
+
+  .calendar-wrapper {
+    margin: auto;
+
+    @include lg {
+      max-width: none;
+      width: 90%;
+    }
+  }
+
+  .week-range {
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    &>* {
+      margin: 0.4em;
+      font-weight: 700;
+    }
+  }
+
+  .day {
+    margin: auto;
+
+    .week-days {
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .event {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      grid-template-rows: auto;
+      margin: 1rem auto;
+
+      border-radius: 10px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+      &__body {
+        width: 100%;
+        border-left: 1px solid lightgray;
+        border-radius: 5px;
+
+        overflow: hidden;
+
+        .situation {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 0.5rem;
+          width: 100%;
+        }
+      }
+
+      .dayof {
+        font-weight: 900;
+        width: 100%;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__p {
+          font-size: 12px;
+          color: lightblue;
+        }
+      }
+
+      &__header {
+        width: 100%;
+        background: linear-gradient(to right, #333939, #222424);
+        overflow: hidden;
+        min-height: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+
+        font-weight: 700;
+
+        &>.icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &__header__transparent {
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+        font-weight: 700;
+
+        background: linear-gradient(to right, #73dadd20, #f3f3f3);
+
+        &>.icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .arrows-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+      display: flex;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      font-size: 17px;
+    }
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scaleY(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.scale-up-animation {
+  animation: scaleUp 0.2s ease-out;
+  transform-origin: bottom;
+}
+
+.table-con {
+  display: table;
+  width: 100%;
+  margin: 40px 0;
+
+  .user-table-card {
+    transition: transform 0.1s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .label-and-icon {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+
+    &>* {
+      align-self: center;
+    }
+  }
+
+
+}

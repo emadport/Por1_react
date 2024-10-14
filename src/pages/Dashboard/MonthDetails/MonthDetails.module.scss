@@ -1,0 +1,281 @@
+@import '../../../styles/_breakpoints.scss';
+@import '../../../styles/_fonts.scss';
+$table-border-color: #ffff;
+$screen-masx-width: 500px;
+$button-colors: #49b4b8;
+
+@mixin label {
+  text-align: center;
+  display: block;
+  margin: 2rem 0;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin left-desgin {
+  width: 2px;
+  height: 20px;
+  background-color: tomato;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.month-details-container {
+  padding-top: 4%;
+  height: 100vmin;
+  width: 100%;
+
+  margin: auto;
+  max-width: 90%;
+
+  @include xl {
+    max-width: none;
+  }
+
+
+
+  @include sm {
+    width: auto;
+    min-width: 700px;
+    overflow: scroll;
+    height: 100vh;
+
+
+  }
+
+  .icons {
+    color: $button-colors;
+  }
+
+  &--username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: 15px !important;
+    font-weight: bold;
+
+    @include md {
+      font-size: 10px !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .month-table-wrapper {
+    padding: 2%;
+  }
+
+  .month-details-container--header-container {
+    background-color: #414040;
+    padding: 1em;
+  }
+
+  .users-container {
+    border: 1px solid rgba(0, 0, 0, 0.076);
+    border-radius: 5px;
+
+    &--dagar-wrapper {
+      display: grid;
+      width: 100%;
+      justify-self: start;
+      align-self: flex-start;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  &__header-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 1em;
+
+    margin: auto;
+
+    &>* {
+      font-size: 0.7vw;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    @include md {
+      &>* {
+        font-size: 1vw;
+      }
+    }
+  }
+
+  &--times--wrapper {
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: auto;
+
+    padding: 1em;
+    margin: auto;
+
+    &:first-child {
+      background: #414040;
+    }
+
+    &:nth-child(2n + 3) {
+      background: #414040;
+    }
+
+    &>* {
+      font-size: 10px;
+    }
+
+    .week-info-container {
+      padding-left: 2%;
+      font-size: 12px;
+
+      @include xxl {
+        &>* {
+          font-size: 13px;
+        }
+      }
+
+      @include lg {
+        &>* {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .seperator {
+      position: relative;
+
+      &::before {
+        content: '';
+        height: 40px;
+        width: 2px;
+        background-color: #383838;
+        position: absolute;
+        left: 0;
+        top: 1%;
+      }
+    }
+  }
+
+  .day-wrapper {
+    height: 100%;
+  }
+
+  .place-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cube-element {
+    width: 100%;
+  }
+}
+
+.month-details-container {
+  width: 100%;
+  margin: auto;
+
+  @include md {
+    & * {
+      font-size: 10px;
+    }
+  }
+
+  .week-item {
+    position: relative;
+
+
+
+    &::before {
+      position: absolute;
+      right: -10px;
+      top: 0;
+      height: 400px;
+      width: 4px;
+      background-color: #3838387b;
+      transform: translateY(23.4%);
+      content: '';
+    }
+  }
+
+  .day-time {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+    margin-top: 4px;
+  }
+
+  @include xl {
+    max-width: 98%;
+  }
+
+  .user-label-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    table-layout: 40px;
+    color: #49b8b8;
+  }
+
+  label {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+    font-weight: 900;
+    font-size: 22px;
+  }
+
+  .week-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+
+    &>* {
+      place-self: center;
+      height: 100%;
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.arrows-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+  }
+
+  & * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    opacity: 0.9;
+    font-size: 17px;
+  }
+}

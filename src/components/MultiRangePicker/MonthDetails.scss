@@ -1,0 +1,27 @@
+@import 'styles/_breakpoints.scss';
+
+.month-details-container {
+  background-color: 'black';
+  border: 2px solid rgba(69, 73, 74, 0.298);
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.079) 0px 3px 6px;
+  border-radius: 20px;
+
+
+  @include sm {
+    font-size: 10px;
+    width: 95%;
+    margin: auto;
+  }
+
+  &--header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .arrows-container {
+    padding: 0.7em;
+  }
+}

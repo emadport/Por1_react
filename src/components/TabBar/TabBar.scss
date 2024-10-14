@@ -1,0 +1,17 @@
+.tabs-container {
+  color: #fff;
+
+  width: 100%;
+  .Mui-selected {
+    border-color: #fff;
+    color: tomato !important;
+  }
+  .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+  & button {
+    color: #fff;
+  }
+}

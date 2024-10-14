@@ -1,0 +1,159 @@
+@import 'styles/_breakpoints.scss';
+$font-color: #c0c0c0;
+$main-color: #49b4b8;
+$main-color--light-theme: #00f7ff;
+
+.modal-con {
+  .icon-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+
+    .icon {
+      font-size: 33px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.2em;
+
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      cursor: pointer;
+      transition: transform 0.05s ease-in-out,
+        background-color 0.05s ease-in-out;
+
+      &:hover {
+        transform: scale(1.3);
+        background-color: #c0c0c0;
+      }
+    }
+  }
+
+  &__meddelande {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+
+    &>* {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+    }
+  }
+}
+
+.leave-status {
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+  padding-top: 4%;
+
+  @include md {
+    max-width: none;
+    width: 100%;
+  }
+
+  &--dark-theme {
+    svg {
+      color: whitesmoke;
+    }
+  }
+
+  .select-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+
+    &>* {
+      width: 50%;
+    }
+  }
+
+  &__items-wrapper {
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+
+    .info-card {
+      margin-top: 1rem;
+
+      border-radius: 10px;
+    }
+
+    .info-button {
+      border-width: 0;
+      background-color: transparent;
+      cursor: pointer;
+      transition: transform 0.1s ease-in-out;
+
+      &:hover {
+        filter: contrast(220%);
+        transform: scale(1.4);
+      }
+    }
+
+    .leave-item,
+    .leave-item-header {
+      margin-bottom: 0.2em;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr 2fr 0.5fr;
+      grid-template-rows: auto;
+      border-radius: 5px;
+
+      position: relative;
+      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+      & * {
+        opacity: 0.8;
+        font-size: 15px;
+        justify-self: flex-start;
+        align-self: center;
+        padding: 4px;
+
+        @include md {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .user-leave-card {
+      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+
+    .leave-item-header {
+      margin-bottom: 10px;
+      border: none;
+
+      font-weight: bold;
+      color: $main-color;
+      box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+
+      &>* {
+        padding-left: 1em;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .leave-status {
+    height: 100vmax;
+  }
+}
+
+@media (max-height: 800px) {
+  .leave-status {
+    height: 100vmax;
+  }
+}

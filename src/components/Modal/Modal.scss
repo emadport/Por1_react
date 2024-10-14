@@ -1,0 +1,41 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_fonts.scss';
+$theme-color: #49b4b8;
+
+
+
+.modal-container {
+  width: 70%;
+  min-width: 500px;
+  margin: auto;
+  height: max-content;
+  font-family: 'Roboto', sans-serif;
+
+  .MuiSvgIcon-root {
+    color: $theme-color;
+  }
+
+  .MuiInputBase-root {
+    border: 1px solid $theme-color;
+  }
+
+  .close_icon {
+    cursor: pointer;
+    color: bisque;
+  }
+}
+
+.content {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+
+  @include portrait {
+    width: 90%;
+  }
+}

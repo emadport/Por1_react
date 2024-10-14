@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  llt-frontend:
+    build:
+      context: .
+    container_name: llt-frontend
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env
+    ports:
+      - '5081:5081'
+    restart: unless-stopped

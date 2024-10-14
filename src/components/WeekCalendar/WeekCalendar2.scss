@@ -1,0 +1,148 @@
+@import '../../styles/_breakpoints.scss';
+
+.week-calendar-con {
+  width: 100%;
+  margin-top: 2rem;
+
+  .calendar-wrapper {
+    margin: auto;
+
+    .week-range {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > * {
+        margin: 0.2rem;
+      }
+    }
+  }
+
+  .day_of_wrapper {
+    width: 100%;
+    overflow: visible;
+    min-width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .dayof {
+      font-size: 14px;
+    }
+  }
+
+  .day {
+    margin: auto;
+
+    .week-days {
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .event {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      grid-template-rows: auto;
+      margin: 1rem auto;
+
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+      &__body {
+        width: 100%;
+        border-left: 1px solid lightgray;
+        border-radius: 0;
+
+        overflow: hidden;
+
+        .situation {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          min-height: 40px;
+          width: 100%;
+        }
+      }
+
+      .dayof {
+        font-weight: 900;
+        width: 100%;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__p {
+          font-size: 12px;
+        }
+      }
+
+      &__header {
+        width: 100%;
+        background: linear-gradient(to right, #222424, #333939);
+        overflow: hidden;
+        min-height: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        font-weight: 700;
+
+        & > .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &__header__transparent {
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+
+        font-weight: 700;
+
+        background: linear-gradient(to right, #f3f3f3, #73dadd20);
+
+        & > .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .arrows-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+
+      display: flex;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      opacity: 0.9;
+      font-size: 13px;
+    }
+  }
+}

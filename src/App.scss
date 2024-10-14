@@ -1,0 +1,261 @@
+@import url("https://use.typekit.net/lwo0esf.css");
+$backgroudnColor: #282828;
+$dark_background: #282828;
+$light_background: #fff;
+$font-color-dark: #ffffff;
+$font-color-light: #282828;
+$font-color-light-placeholder: #28282894;
+$border-color: #49b4b862;
+$border-color-dark: #20e9f062;
+$border-color-light: #00f7ff62;
+$theme_secoundry_color: #49b4b8;
+
+// Define mixin for common input styles
+@mixin input-styles-dark {
+  color: $light_background;
+
+  &::placeholder {
+    color: $light_background;
+  }
+}
+
+// Define mixin for common input styles
+@mixin input-styles-light {
+  color: $dark_background;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+  &::placeholder {
+    color: $dark_background;
+  }
+}
+
+// Define mixin for common label styles
+@mixin label-styles-dark {
+  color: $light_background;
+
+  &.Mui-focused {
+    color: rgba(255, 255, 255, 0.262);
+  }
+}
+
+// Define mixin for common label styles
+@mixin label-styles-light {
+  color: $dark_background;
+
+  &.Mui-focused {
+    color: rgba(255, 255, 255, 0.262);
+  }
+}
+
+// Define mixin for common fieldset styles
+@mixin fieldset-styles-light {
+  border-color: $dark_background;
+}
+
+// Define mixin for common label styles
+@mixin label-styles-light {
+  color: $dark_background;
+
+  &.Mui-focused {
+    color: rgba(255, 255, 255, 0.262);
+  }
+}
+
+// Define mixin for common fieldset styles
+@mixin fieldset-styles-dark {
+  border-color: $light_background;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+
+
+
+  .first-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.App {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+  &__theme-switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  &--dark {
+    color-scheme: dark;
+    color: $font-color-dark;
+    background-color: $backgroudnColor;
+
+    .MuiFormLabel-root,
+    .MuiInputBase-input,
+    .MuiAccordionSummary-content {
+      color: #e2dbdb !important;
+    }
+
+    .MuiOutlinedInput-root {
+      // Apply fieldset styles
+      @include fieldset-styles-dark;
+
+      &:hover fieldset {
+        @include fieldset-styles-dark;
+      }
+
+      &.Mui-focused fieldset {
+        @include fieldset-styles-dark;
+      }
+
+      // Apply input styles
+      @include input-styles-dark;
+    }
+
+    .MuiTextField-root {
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+
+    svg {
+      color: whitesmoke;
+    }
+
+    fieldset,
+    textarea {
+      border: 1px solid $border-color-dark;
+    }
+
+    h1,
+    h2,
+    h3,
+    textarea {
+      color: $font-color-dark;
+    }
+
+    input {
+      &::placeholder {
+        color: rgb(211, 210, 210);
+      }
+    }
+
+    a {
+      color: $font-color-dark;
+      opacity: 0.8;
+    }
+
+    button {
+      color: $font-color-dark;
+    }
+  }
+
+  &--light {
+    background-color: $light_background;
+    color: $font-color-light;
+
+    color-scheme: light;
+
+    .MuiFormLabel-root,
+    .MuiInputBase-input,
+    .MuiAccordionSummary-content {
+      color: #1a1919 !important;
+    }
+
+    fieldset,
+    textarea {
+      border: 2px solid $border-color;
+    }
+
+    input {
+      &::placeholder {
+        color: rgba(36, 35, 35, 0.825);
+        font-weight: 500;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    textarea::placeholder {
+      color: $font-color-light-placeholder;
+    }
+
+    h1,
+    h2,
+    h3,
+    textarea {
+      color: $font-color-light;
+    }
+
+    label {
+      color: $font-color-light;
+    }
+
+    .sidebar-wrapper label {
+      color: $font-color-dark;
+    }
+
+    .leave-item-header {
+      border-width: 2px !important;
+    }
+
+    a {
+      color: $font-color-light;
+      opacity: 0.8;
+    }
+
+    button {
+      text-shadow: none !important;
+    }
+
+    .MuiOutlinedInput-root {
+      // Apply fieldset styles
+      @include fieldset-styles-light;
+
+      &:hover fieldset {
+        @include fieldset-styles-light;
+      }
+
+      &.Mui-focused fieldset {
+        @include fieldset-styles-light;
+      }
+
+      // Apply input styles
+      @include input-styles-light;
+    }
+  }
+
+  .error-element {
+
+    width: 100vmin;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+
+    &__info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &>* {
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

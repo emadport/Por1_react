@@ -1,0 +1,36 @@
+@import "/src/styles/breakpoints";
+
+$background: #49b4b8;
+
+.button-wrapper {
+  border: 0.2px solid rgba(0, 0, 0, 0.126);
+  padding: 0.5rem 1.7rem;
+  margin: auto;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1px solid rgba(136, 134, 134, 0.117);
+  color: #282828dc !important;
+  font-weight: 600;
+  margin-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+  transition: all 0.2s ease-in-out;
+  background-color: $background;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    background-color: rgb(39, 240, 220);
+  }
+}

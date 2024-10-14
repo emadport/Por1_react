@@ -1,0 +1,11 @@
+@import '../../styles/breakpoints.scss';
+
+.static-date-wrapper {
+  color: #fff;
+  text-align: center;
+  margin: auto;
+
+  @include sm {
+    max-width: initial;
+  }
+}

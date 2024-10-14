@@ -1,0 +1,99 @@
+$margin-left: 0.5rem;
+
+@mixin underline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: gray;
+}
+
+.profile {
+    position: relative;
+
+
+
+    &__user-icon {
+        background-color: lightblue;
+        padding: 0.5rem;
+        font-size: 42px;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    .profile-wrapper {
+        width: 80%;
+        margin: auto;
+        padding-bottom: 10%;
+        min-height: 200px;
+        box-shadow: rgba(72, 72, 72, 0.25) 0px 13px 27px -5px,
+            rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-top: 5%;
+        border: 2px solid #49b4b851;
+
+        padding: 1rem;
+        border-radius: 5px;
+
+
+
+        .username-wrapper {
+            top: 10%;
+            background-color: red;
+
+            &__username {
+                font-weight: bold;
+                margin-left: $margin-left;
+
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform: translate(30%, -50%);
+                background-color: lightblue;
+                border-radius: 10px;
+                color: #383838;
+                text-align: center;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                min-width: 50px;
+            }
+        }
+
+        .fields {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+
+            &>* {
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+
+            &__label {
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .email {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            &>* {
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+        }
+    }
+}

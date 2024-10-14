@@ -1,0 +1,74 @@
+@import 'styles/_breakpoints.scss';
+$button-colors: #49b4b8;
+
+.company-con {
+    width: 100%;
+
+    @include md {
+        width: 98%;
+        margin: auto;
+    }
+
+    .headers {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 0.5fr;
+        grid-template-rows: auto;
+
+        &>* {
+            display: flex;
+            width: max-content;
+            justify-content: flex-end;
+            align-items: flex-end;
+            align-self: center;
+            transform: translateX(20%);
+
+            &>* {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .company-con__body-wrapper {
+        margin-top: 2%;
+
+        font-size: 15px;
+        font-weight: 500;
+
+        >div:nth-child(odd) {
+            background-color: #393939;
+            border-radius: 5px;
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 0.5fr;
+        grid-template-rows: auto;
+
+        border-radius: 5px;
+        padding: 1rem;
+
+        width: 100%;
+
+
+
+        .arrow-down {
+            font-size: 17px;
+
+        }
+
+        &>* {
+            display: flex;
+            width: max-content;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            &>* {
+                text-align: left;
+            }
+        }
+    }
+}

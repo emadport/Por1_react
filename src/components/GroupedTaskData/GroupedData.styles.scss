@@ -1,0 +1,64 @@
+@import 'styles/breakpoints.scss';
+$button-colors: #49b4b878;
+
+.task-grouped-container {
+    position: relative;
+    padding: 0.5%;
+
+    .headers {
+        text-decoration: underline;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .labels {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 0;
+        font-weight: bold;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: $button-colors;
+            content: '';
+            width: 100%;
+            height: 2px;
+
+        }
+    }
+
+    .task-grouped-data {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        min-width: 300px;
+
+        width: 100%;
+
+
+        @include md {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+        }
+
+        &>div {
+            width: 25%;
+            padding: 1rem;
+
+            @include md {
+                min-width: 0;
+                width: 100%;
+                font-size: 14px;
+                padding: 0;
+                margin: 10px;
+            }
+        }
+
+
+    }
+}

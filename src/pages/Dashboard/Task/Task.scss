@@ -1,0 +1,238 @@
+@import '../../../styles/_breakpoints.scss';
+$button-colors: #49b4b8;
+
+@mixin icon-animation() {
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+    color: tomato !important;
+  }
+}
+
+.place-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-screen {
+  margin: auto;
+  height: 100vh;
+  padding-top: 5%;
+  position: relative;
+  max-width: 75%;
+
+
+  @include lg {
+    width: 100%;
+  }
+
+  .content-wrapper {
+    background-color: #383838;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 1rem;
+
+    &>* {
+      justify-self: center;
+      align-self: stretch;
+    }
+
+    @include md {
+      display: block;
+    }
+  }
+
+  &__row1 {
+    @include md {
+      width: 100%;
+      justify-content: space-around;
+    }
+
+    .add-button {
+      margin-left: auto;
+    }
+
+    &__col1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+      position: relative;
+      font-weight: bold;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      background-color: transparent;
+      padding: 0.1em 0.8em;
+      border-radius: 30px;
+      width: max-content;
+
+      &::after {
+        width: 100%;
+        content: '';
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: #49b4b8;
+        position: absolute;
+      }
+    }
+  }
+
+  &__workers-parent {
+    padding: 1rem;
+    margin: auto;
+    display: block;
+
+    border-radius: 10px;
+    margin-top: 1rem;
+
+    .task-header-parent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-right: 1rem;
+
+      &>* {
+        margin: 4px;
+        font-weight: bold;
+      }
+    }
+
+    .task-screen__row1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #49b4b8;
+      border-radius: 0 !important;
+
+      .add-buttons-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: right;
+
+        margin-right: 5%;
+        right: 0;
+        font-weight: bold;
+
+        flex-direction: column;
+        cursor: pointer;
+
+        label {
+          opacity: 0.8;
+          font-size: 12px;
+        }
+
+        &__icon {
+          width: 100%;
+          cursor: pointer;
+          margin-right: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 1;
+          @include icon-animation;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      padding: 0 10%;
+      flex-direction: column;
+
+      @include md {
+        padding: 0;
+        flex-wrap: wrap;
+      }
+    }
+
+    li {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      margin-top: 1em;
+      width: max-content;
+      min-width: 300px;
+      flex-wrap: nowrap;
+
+      @include md {
+        width: 100%;
+      }
+
+      .user-card {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 10px;
+        padding: 1rem;
+
+        border: 1px double rgba(211, 211, 211, 0.125);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+        &__name {
+          font-size: 22px;
+          font-weight: 700;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 1em;
+
+          &::before {
+            content: '';
+            position: absolute;
+
+            right: -100%;
+            bottom: 50%;
+            height: 2px;
+
+            transform: translate(10%, 100%);
+            width: 100%;
+            background-color: $button-colors;
+          }
+        }
+
+        &__info-parent {
+          width: 100%;
+
+          position: relative;
+          border-radius: 40px;
+          border-top-left-radius: -40px;
+        }
+      }
+    }
+
+    .worker-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #383838;
+      border: 1px solid #49b4b86e;
+      padding: 5px;
+    }
+
+    &__icon {
+      color: $button-colors;
+      margin-right: 0.5rem;
+
+      position: relative;
+    }
+  }
+}
+
+@media (max-height: 700px) {
+  .task-screen {
+    height: 100vmax;
+  }
+}

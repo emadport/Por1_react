@@ -1,0 +1,85 @@
+@import 'styles/breakpoints.scss';
+$button-colors: #49b4b8;
+
+.project-info-wrapper {
+    width: 100%;
+
+
+
+    &__labels {
+        border-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border: 1px solid #49b4b8;
+        padding: 0.2rem 1rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        width: fit-content;
+        font-size: 10px;
+
+
+    }
+
+    .button {
+        background-color: transparent;
+        border: 1px solid $button-colors;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1em;
+        min-width: 100px;
+        padding: 0.2em 1em;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            color: tomato;
+        }
+    }
+}
+
+.project-info {
+    min-height: 0;
+
+    transition: min-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    /* Add transition property */
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+
+    .button {
+        font-size: 10px !important;
+        font-weight: bold;
+
+        &:hover {
+            background-color: #282828;
+
+
+        }
+
+
+
+        @include lg {
+            font-size: 10px !important;
+            padding: 0.2rem 1rem !important;
+        }
+    }
+
+    .icons {
+        @include md {
+            font-size: 10px !important;
+        }
+    }
+
+    @include md {
+        font-size: 10px;
+    }
+
+}

@@ -1,0 +1,16 @@
+@import '../../styles/breakpoints';
+
+.logo_container {
+  font-family: 'Lobster', cursive;
+  color: rgba(255, 99, 71, 0.822);
+  text-shadow: 4px 4px 2px rgb(68, 62, 62);
+  position: relative;
+  /* clip hackery */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .label {
+    width: 50px;
+  }
+}

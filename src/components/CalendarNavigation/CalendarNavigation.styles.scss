@@ -1,0 +1,76 @@
+@import 'styles/_breakpoints.scss';
+
+.calendar-wrapper {
+    margin: auto;
+    padding: 1rem 0;
+    width: 100%;
+
+
+
+    .week-range {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &>* {
+            margin: 0.2rem auto;
+        }
+    }
+
+
+}
+
+.arrows-con {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    max-width: 700px;
+    margin: auto;
+
+    .arrows-wrapper {
+
+
+        &:hover {
+
+            color: lightgray;
+
+
+
+            & * {
+                text-shadow: 1px 1px 1px black;
+                color: tomato;
+                transform: scale(1.02);
+                transition: transform 0.2s ease-in-out, color 0.2s ease-in;
+
+            }
+        }
+
+
+
+        button {
+            border-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+
+            font-weight: 900;
+            font-size: 14px;
+            opacity: 0.9;
+            cursor: pointer;
+
+            background-color: transparent !important;
+        }
+    }
+
+
+}
+
+.week-range {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}

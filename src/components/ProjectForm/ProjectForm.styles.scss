@@ -1,0 +1,37 @@
+// Define variables for common colors and styles
+$white-color: rgba(245, 245, 245, 0.494);
+$background-color: rgba(0, 0, 0, 0.1);
+$border-color: rgba(245, 245, 245, 0.494);
+$border-radius: 7px;
+$button-colors: #49b4b862;
+
+
+.project-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+
+
+    input {
+        &::placeholder {
+            opacity: 0.9;
+        }
+    }
+
+
+    .label-container {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: flex-start, ;
+        align-items: center;
+
+        &>* {
+            margin: 3px;
+        }
+    }
+
+
+}

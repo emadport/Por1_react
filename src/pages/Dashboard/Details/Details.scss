@@ -1,0 +1,276 @@
+@import 'styles/_breakpoints.scss';
+$button-colors: #49b4b8;
+
+
+
+
+
+.detail-container {
+
+  margin: auto;
+
+  height: 100vmin;
+  padding-top: 5vmin;
+  font-size: 14px;
+  max-width: 95%;
+
+
+  @include md {
+    &>* {
+      font-size: 12px;
+    }
+  }
+
+  .accordion-transition {
+    overflow: visible;
+    transition: height 0.3s ease-in-out;
+    height: fit-content;
+    min-height: max-content;
+
+  }
+
+  .table-con {
+    @include md {
+      * {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .table-data {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+
+    &::before {
+      width: 2px;
+      height: 300px;
+      content: '';
+      background-color: rgb(92, 90, 90);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .extra-informations-parent {
+
+
+    &>div {
+      border-bottom: 1px solid #49b4b8;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .extra-informations-label {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      &>* {
+        margin-right: 5px;
+      }
+    }
+  }
+
+
+  .table-header {
+    text-align: center;
+    padding: 1em;
+    font-size: 13px;
+    font-weight: 700;
+
+    span {
+      vertical-align: baseline;
+    }
+  }
+
+  .add-buttons-container {
+    display: flex;
+    width: max-content;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 5%;
+    right: 0;
+    font-weight: bold;
+
+    margin-left: auto;
+
+    svg {
+      color: $button-colors !important;
+    }
+
+    .add-button-container {
+      margin: 0 1em;
+
+      &__label {
+        opacity: 0.8;
+        font-size: 13px;
+      }
+
+      &__icon {
+        width: 100%;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+      }
+    }
+  }
+
+  .user-navigation-button {
+    border-width: 0;
+    padding: 0.2rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(211, 211, 211, 0.242);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &>* {
+      font-size: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .icons {
+    color: $button-colors;
+    margin: auto 5px;
+  }
+
+  .place-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__inner-wrapper {
+    min-height: 80vmin;
+  }
+
+  .times-container {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  @include lg {
+    max-width: none;
+  }
+
+  .table-con {
+    &__label-and-icon {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      * {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .detail-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: 3vmin auto;
+    height: 50px;
+    padding: 0 1em;
+    position: relative;
+
+    &__calendar {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      transition: transform 0.08s ease-in;
+      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &__queries {
+      margin: auto;
+
+      &>* {
+        margin: 1em;
+      }
+    }
+
+    &__query-item {
+      font-size: 17px;
+      font-weight: bold;
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    &__query-item--selected {
+      position: relative;
+
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &::after {
+        position: absolute;
+        left: 0;
+        bottom: -10%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        width: 100%;
+        height: 2px;
+        background-color: $button-colors;
+        content: '';
+      }
+    }
+  }
+
+  .arrows-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+
+      display: flex;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    & * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      opacity: 0.9;
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .detail-container {
+    height: 100vmax;
+  }
+}

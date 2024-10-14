@@ -1,0 +1,79 @@
+$font-color: "#c0c0c0";
+
+.time-rapport-wrapper {
+  color: lightgray;
+  width: 100%;
+  padding-top: 4%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .fileds-wrapper {
+    width: max-content;
+
+  }
+
+  h1 {
+    color: $font_color;
+    text-align: center;
+  }
+
+  label {
+    font-weight: 700;
+  }
+
+  .calendar_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .switch-wrapper {
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .select-wrapper {
+    width: 100%;
+
+    margin: 0 auto;
+
+    &>* {
+      width: 100%;
+      margin: 1%;
+    }
+  }
+
+  .button-wr {
+    width: 100%;
+  }
+
+  .project-hour {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .time-rapport-wrapper {
+    margin: auto;
+
+    .fileds-wrapper {
+      margin: auto;
+    }
+  }
+
+  .calendar_parent {
+    flex-direction: column;
+
+    &>* {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

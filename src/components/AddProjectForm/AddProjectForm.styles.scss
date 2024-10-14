@@ -1,0 +1,28 @@
+// Define variables for common colors and styles
+$white-color: rgba(245, 245, 245, 0.494);
+$background-color: rgba(0, 0, 0, 0.1);
+$border-color: rgba(245, 245, 245, 0.494);
+$border-radius: 7px;
+$button-colors: #49b4b862;
+
+
+.add-project-form {
+
+
+    .icons {
+        color: #49b4b8;
+    }
+
+    .icon {
+        color: #49b4b8;
+    }
+
+    &>div {
+        display: grid;
+        grid-template-columns: 1fr 7fr 1fr;
+        grid-template-rows: auto;
+        width: 100%;
+        margin: 1rem auto;
+        text-align: center;
+    }
+}

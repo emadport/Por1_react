@@ -1,0 +1,171 @@
+$font-color: #49b4b8;
+$font-color-light-theme: #5ea0a2;
+$button-theme-color: gray;
+@import "../../styles/breakpoints";
+
+
+button>.MuiSvgIcon-root[data-testid="ArrowLeftIcon"],
+button>.MuiSvgIcon-root[data-testid="ArrowRightIcon"],
+button>.MuiSvgIcon-root[data-testid="ArrowDropDownIcon"] {
+  color: white;
+
+}
+
+textarea {
+
+  font-family: 'Roboto', sans-serif;
+
+  &::placeholder {
+
+
+    font-weight: 700;
+
+  }
+}
+
+.leave-rapport-wrapper {
+  color: lightgray;
+  margin: auto;
+  height: 100vh;
+  max-width: 1920px;
+  width: 70%;
+  padding-top: 5%;
+
+
+  @include md {
+    padding-top: 0;
+  }
+
+
+
+
+  &--dark-theme {
+
+    .MuiButtonBase-root,
+    .css-1tjenlo-MuiButtonBase-root-MuiButton-root {
+      color: $font-color !important;
+      text-shadow: none;
+
+    }
+  }
+
+  &--light-theme {
+
+    .MuiButtonBase-root,
+    .css-1tjenlo-MuiButtonBase-root-MuiButton-root {
+      color: #375b5c !important;
+      text-shadow: none;
+      font-weight: 900;
+    }
+  }
+
+  @include xxl {
+    width: 60%;
+  }
+
+  @include xl {
+    width: 70%;
+  }
+
+  @include md {
+    width: 95%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+
+
+  label {
+    font-weight: 700;
+  }
+
+  &__message {
+    background-color: transparent;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    min-height: 100px;
+    margin-top: 1em;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: $button-theme-color;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 95%;
+
+    font-size: 14px;
+    padding: 1em;
+    margin-top: 5%;
+
+  }
+
+  .fileds-wrapper {
+    padding-top: 1rem;
+
+    .navigation-buttons {
+      width: 100%;
+      padding: 3% 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__times_parent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    &>* {
+      width: 100%;
+      margin: auto 1%;
+
+    }
+  }
+
+  .switch-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+  }
+
+  &__select-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    &>* {
+      width: 100%;
+    }
+  }
+
+  .button-wr {
+    width: 100%;
+  }
+
+  .project-hour {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .times-submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

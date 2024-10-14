@@ -1,0 +1,28 @@
+ .link-navigation-button {
+     border-width: 0;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-radius: 5px;
+     background-color: hsl(0, 0%, 16%);
+     color: #ffffff;
+     box-shadow: rgba(0, 0, 0, 0.752) 0px 1px 4px;
+     cursor: pointer;
+     transition: transform 0.1s ease-in-out;
+     padding: 0.3rem 1em;
+     margin: auto;
+     width: 80%;
+     text-decoration: none;
+
+     border: 1px solid #49b4b879;
+
+     &>* {
+
+         color: #fefefee8;
+         font-weight: 500;
+     }
+
+     &:hover {
+         transform: scale(1.04);
+     }
+ }
